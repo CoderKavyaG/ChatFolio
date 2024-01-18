@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ChatFolio-Your Own Kavya</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <img src="https://i.ibb.co/ZH4y1rH/profile-pic.png" alt="Logo" class="logo">
+    <h4 class="sidebar-title">New Chat</h4>
+    <span class="material-symbols-outlined editbtn">
+      edit
+      </span>
+  </div>
+  <ul class="sidebar-tabs">
+    <li><a href="#">Skills:My Expertise</a></li>
+    <li><a href="#">Acheivemnets:Growth </a></li>
+    <li><a href="#">Blogs:Lets Get Deep</a></li>
+  </ul>
+</div>
+
+<div class="content">
+  <!-- <div class="button-container">
+    <button class="top-left-button1">Button 1</button>
+    <button class="top-left-button2">Button 2</button>
+    <button class="top-right-button1">Button 3</button>
+    <button class="top-right-button2">Button 4</button>
+  </div> -->
+  <button id="toggleSidebarBtn">&raquo;</button> <!-- Arrow button -->
+<!-- <div class="center-box"> -->
+<div class="chat-container" id="chat-container">
+  <div class="chat-box" id="chat-box">
+    <div class="bot-message">Hello! How can I help you?</div>
+  </div>
+  <input type="text" class="resizable-input" id="user-input" placeholder="Message ChatFOLIO...">
+  <button class="sendbtn" onclick="sendMessage()">Send</button>
+</div>
+</div>
+<!-- <div class="profile-pic"><img src="https://i.ibb.co/ZH4y1rH/profile-pic.png" alt="profile-pic" border="0"></a></div>
+<div class="pic-text">Hey! What will You like to know about me?</div> -->
+
+<script src="script.js"></script>
+<script>
+  const sidebar = document.getElementById('sidebar');
+  sidebar.classList.remove('collapsed');
+
+  const profilePic = document.getElementById('profile-pic');
+  const picText = document.getElementById('pic-text');
+  const userInput = document.getElementById('user-input');
+
+  const isHidden = localStorage.getItem('profileHidden') === 'true';
+
+  function toggleProfileVisibility() {
+    if (isHidden) {
+      profilePic.style.display = 'block';
+      picText.style.display = 'block';
+    } else {
+      profilePic.style.display = 'none';
+      picText.style.display = 'none';
+    }
+  }
+
+  userInput.addEventListener('input', () => {
+    const inputValue = userInput.value.trim();
+    if (inputValue !== '') {
+      localStorage.setItem('profileHidden', 'true');
+      toggleProfileVisibility();
+    } else {
+      localStorage.setItem('profileHidden', 'false');
+      toggleProfileVisibility();
+    }
+  });
+
+  toggleProfileVisibility();
+
+
+
+</script>
+</body>
+</html>
